@@ -10,13 +10,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index(CallApiService $callApiService): Response
     {
-      //  dd($callApiService->getDataFrance());
+        //dd($callApiService->getDataFrance());
+        //dd($callApiService->getAllData());
         return $this->render('home/index.html.twig', [
             'data' => $callApiService->getDataFrance(),
+            'departments' => $callApiService->getAllData(),
         ]);
     }
 }

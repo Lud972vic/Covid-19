@@ -10,39 +10,38 @@
 			<p>
 				<strong class="text-danger">REMARQUE</strong>
 				: Les données sont actualisées chaque jours aux alentours de 20h,
-																				             si vous requetez les données pour le jour meme avant 20h,
-																				             vous aurez les données du jour d'avant mais ne vous inquiétez pas tout ceci est automatiquement géré par l'API</p>
+																																																																																																             si vous requetez les données pour le jour meme avant 20h,
+																																																																																																             vous aurez les données du jour d'avant mais ne vous inquiétez pas tout ceci est automatiquement géré par l'API</p>
 			<p>Source des données
 				<strong>{{ data.FranceGlobalLiveData.0.sourceType }}</strong>
 				au
 				<strong>{{ data.FranceGlobalLiveData.0.date }}</strong>
 			</p>
 			<hr>
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-				<div class="col">
-					<div class="card shadow-sm h-100">
-						<div class="card-body">
-							<h5 class="card-title">
-								<i class="fas fa-hospital"></i>
-								Hospitalisation</h5>
-							<p class="card-text">
-								<small class="text-danger">
-									<i class="fas fa-exclamation-triangle"></i>
-									<strong>{{ data.FranceGlobalLiveData.0.nouvellesHospitalisations }}</strong>
-									nouveau cas au
-									<strong>{{ data.FranceGlobalLiveData.0.date }}</strong>
-								</small>
-							</p>
-						</div>
-						<h3 class="card-footer bg-warning text-dark mx-2">
-							<small>Nombre de personnes actuellement hospitalisée</small>
-							{{ data.FranceGlobalLiveData.0.hospitalises }}
-							😪
-						</h3>
+
+			<div class="row justify-content-center">
+				<div class="card shadow col-md-5 m-2" style="height: 200px">
+					<div class="card-body">
+						<h5 class="card-title">
+							<i class="fas fa-hospital"></i>
+							Hospitalisation</h5>
+						<p class="card-text">
+							<small class="text-warning">
+								<i class="fas fa-exclamation-triangle"></i>
+								<strong>{{ data.FranceGlobalLiveData.0.nouvellesHospitalisations }}</strong>
+								nouveau cas au
+								<strong>{{ data.FranceGlobalLiveData.0.date }}</strong>
+							</small>
+						</p>
 					</div>
+					<h3 class="card-footer bg-warning text-dark mx-2 rounded">
+						<small>Nombre de personnes actuellement hospitalisée</small>
+						{{ data.FranceGlobalLiveData.0.hospitalises }}
+						😪
+					</h3>
 				</div>
 
-				<div class="card shadow-sm h-100">
+				<div class="card shadow col-md-5 m-2" style="height: 200px">
 					<div class="card-body">
 						<h5 class="card-title">
 							<i class="fas fa-heartbeat"></i>
@@ -56,46 +55,75 @@
 							</small>
 						</p>
 					</div>
-					<h3 class="card-footer bg-warning text-dark mx-2">
+					<h3 class="card-footer bg-danger text-dark mx-2 rounded">
 						<small>Nombre de personnes actuellement en réanimation</small>
 						{{ data.FranceGlobalLiveData.0.reanimation }}
 						😓
 					</h3>
 				</div>
 
-				<div class="card shadow-sm h-100">
+				<div class="card shadow col-md-5 m-2" style="height: 200px">
 					<div class="card-body">
 						<h5 class="card-title">
 							<i class="fas fa-heart-broken"></i>
 							Décès</h5>
 						<p class="card-text">
-							<small class="text-danger">
+							<small class="text-dark">
 								Décès depuis le début de la pandémie
 							</small>
 						</p>
 					</div>
-					<h3 class="card-footer bg-danger text-dark mx-2">
+					<h3 class="card-footer bg-dark text-white mx-2 rounded">
 						<small>Nombre total de décès</small>
-						<br><br>
+						<br>
 						{{ data.FranceGlobalLiveData.0.deces }}
 						😥
 					</h3>
 				</div>
 
-				<div class="card shadow-sm h-100">
+				<div class="card shadow col-md-5 m-2" style="height: 200px">
 					<div class="card-body">
 						<h5 class="card-title">
 							<i class="fas fa-heartbeat"></i>
 							Guéri</h5>
 						<p class="card-text">
-							<small class="text-danger">
-								<i class="fas fa-exclamation-triangle"></i>
+							<small class="text-success">
 								Nombre de personnes guéris depuis le début de la pandémie
 							</small>
 						</p>
 					</div>
-					<h3 class="card-footer bg-success text-dark mx-2">Nombre de personnes guéris <br>{{ data.FranceGlobalLiveData.0.gueris }}🙏</h3>
+					<h3 class="card-footer bg-success text-dark mx-2 rounded">Nombre de personnes guéris
+						<br>{{ data.FranceGlobalLiveData.0.gueris }}🙏</h3>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="album py-5">
+		<div class="container">
+			<h1 class="mb-5">Les chiffres par département</h1>
+			<hr>
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				{% for department in departments.allLiveFranceData %}
+					<div class="col">
+						<div class="card shadow-lg h-100 m-2">
+							<div class="card-body">
+								<h5 class="card-title">{{ department.nom }}</h5>
+								<span class="badge bg-warning">Hospitalisées
+									{{ department.hospitalises }}</span>
+								<span class="badge bg-danger">Réanimations
+									{{ department.reanimation }}</span>
+								<span class="badge bg-dark">Décès
+									{{ department.deces }}</span>
+								<span class="badge bg-success">Guéris
+									{{ department.gueris }}</span>
+								<br><a href="{{ path('department', {'department': department.nom}) }}" class="btn btn-sm btn-outline-secondary mt-2" role="button" aria-pressed="true">
+									<small>Plus de chiffres</small>
+								</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
