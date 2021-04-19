@@ -1,4 +1,6 @@
-## Projet Lud972vic
+## Projet Covid-19
+
+![Capture](https://user-images.githubusercontent.com/52196263/115295714-59c2cf80-a15a-11eb-95b4-3dba128bbfbe.PNG)
 
 ## Environnement de développement
 * PHP 7.4.16
