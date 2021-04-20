@@ -5,7 +5,7 @@
 
 {% block body %}
 	<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-		<h1 class="display-4">Les chiffres du COVID-19 -
+		<h1 class="display-4">Les chiffres de
 			{{ data.LiveDataByDepartement.0.nom }}</h1>
 		<p class="lead">Source :
 			{{ data.LiveDataByDepartement.0.sourceType }}</p>
@@ -21,9 +21,9 @@
 
 	<div class="row text-center">
 		<div class="col">
-			<div class="card mb-4 shadow-sm">
+			<div class="card mb-4 shadow-sm" style="color: #f0ad4e">
 				<div class="card-header">
-					<h4 class="my-0 fw-normal">Nombre d’hospitalisations</h4>
+					<h4 class="my-0 fw-normal" style="height: 150px">Hospitalisations <small>à la date du {{ data.LiveDataByDepartement.0.date }}</small></h4>
 				</div>
 				<div class="card-body">
 					<h1 class="card-title pricing-card-title">{{ data.LiveDataByDepartement.0.hospitalises }}</h1>
@@ -31,12 +31,52 @@
 			</div>
 		</div>
 		<div class="col">
-			<div class="card mb-4 shadow-sm">
+			<div class="card mb-4 shadow-sm" style="color: #FA6400">
 				<div class="card-header">
-					<h4 class="my-0 fw-normal">Nombre de personnes réa</h4>
+					<h4 class="my-0 fw-normal" style="height: 150px">Nouvelles entrées en hospitalisation <small>à la date du {{ data.LiveDataByDepartement.0.date }}</small></h4>
+				</div>
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">{{ data.LiveDataByDepartement.0.nouvellesHospitalisations }}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card mb-4 shadow-sm" style="color: #d9534f">
+				<div class="card-header">
+					<h4 class="my-0 fw-normal" style="height: 150px">Réeanimations <small>à la date du {{ data.LiveDataByDepartement.0.date }}</small></h4>
 				</div>
 				<div class="card-body">
 					<h1 class="card-title pricing-card-title">{{ data.LiveDataByDepartement.0.reanimation }}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card mb-4 shadow-sm" style="color: #C80000">
+				<div class="card-header">
+					<h4 class="my-0 fw-normal" style="height: 150px">Nouvelles entrées en réeanimation <small>à la date du {{ data.LiveDataByDepartement.0.date }}</small></h4>
+				</div>
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">{{ data.LiveDataByDepartement.0.nouvellesReanimations }}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card mb-4 shadow-sm" style="color: #292b2c">
+				<div class="card-header">
+					<h4 class="my-0 fw-normal" style="height: 150px">Décès <small>à la date du {{ data.LiveDataByDepartement.0.date }}</small></h4>
+				</div>
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">{{ data.LiveDataByDepartement.0.deces }}</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card mb-4 shadow-sm" style="color: #5cb85c">
+				<div class="card-header">
+					<h4 class="my-0 fw-normal" style="height: 150px">Guéris <small>à la date du {{ data.LiveDataByDepartement.0.date }}</small></h4>
+				</div>
+				<div class="card-body">
+					<h1 class="card-title pricing-card-title">{{ data.LiveDataByDepartement.0.gueris }}</h1>
 				</div>
 			</div>
 		</div>

@@ -5,13 +5,18 @@
 {% block body %}
 	<div class="album py-5" id="france">
 		<div class="container">
-			<h1 class="mb-5">Les chiffres du COVID-19 en France 🇫🇷</h1>
+			<h1 class="mb-5">Les chiffres du COVID-19 en France 🇫🇷
+			</h1>
+			<img src="{{ asset('images/merci.png')}}" alt="Merci au personnel soignant">
+			<a href="https://github.com/Lud972vic">
+				<img src="{{ asset('images/github_100px.png')}}">
+			</a>
 			<hr>
 			<p>
 				<strong class="text-danger">REMARQUE</strong>
 				: Les données sont actualisées chaque jours aux alentours de 20h,
-																																																																																																             si vous requetez les données pour le jour meme avant 20h,
-																																																																																																             vous aurez les données du jour d'avant mais ne vous inquiétez pas tout ceci est automatiquement géré par l'API</p>
+																																																																																																								             si vous requetez les données pour le jour meme avant 20h,
+																																																																																																								             vous aurez les données du jour d'avant mais ne vous inquiétez pas tout ceci est automatiquement géré par l'API</p>
 			<p>Source des données
 				<strong>{{ data.FranceGlobalLiveData.0.sourceType }}</strong>
 				au
@@ -36,7 +41,7 @@
 					</div>
 					<h3 class="card-footer bg-warning text-dark mx-2 rounded">
 						<small>Nombre de personnes actuellement hospitalisée</small>
-						{{ data.FranceGlobalLiveData.0.hospitalises }}
+						{{ data.FranceGlobalLiveData.0.hospitalises|number_format('0', '', ' ')}}
 						😪
 					</h3>
 				</div>
@@ -57,7 +62,7 @@
 					</div>
 					<h3 class="card-footer bg-danger text-dark mx-2 rounded">
 						<small>Nombre de personnes actuellement en réanimation</small>
-						{{ data.FranceGlobalLiveData.0.reanimation }}
+						{{ data.FranceGlobalLiveData.0.reanimation|number_format('0', '', ' ') }}
 						😓
 					</h3>
 				</div>
@@ -76,7 +81,7 @@
 					<h3 class="card-footer bg-dark text-white mx-2 rounded">
 						<small>Nombre total de décès</small>
 						<br>
-						{{ data.FranceGlobalLiveData.0.deces }}
+						{{ data.FranceGlobalLiveData.0.deces|number_format('0', '', ' ') }}
 						😥
 					</h3>
 				</div>
@@ -93,7 +98,7 @@
 						</p>
 					</div>
 					<h3 class="card-footer bg-success text-dark mx-2 rounded">Nombre de personnes guéris
-						<br>{{ data.FranceGlobalLiveData.0.gueris }}🙏</h3>
+						<br>{{ data.FranceGlobalLiveData.0.gueris|number_format('0', '', ' ') }}🙏</h3>
 				</div>
 			</div>
 		</div>
