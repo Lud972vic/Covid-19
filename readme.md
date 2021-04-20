@@ -1,6 +1,7 @@
-## Projet Covid-19
+## Les chiffres du Covid-19
 
-![Capture](https://user-images.githubusercontent.com/52196263/115295714-59c2cf80-a15a-11eb-95b4-3dba128bbfbe.PNG)
+![Capture](https://user-images.githubusercontent.com/52196263/115314516-a5cf3d80-a175-11eb-8376-eb5ae1ef018a.PNG)
+![Capture2](https://user-images.githubusercontent.com/52196263/115314519-a667d400-a175-11eb-8c77-be8f5dda1c35.PNG)
 
 ## Environnement de développement
 * PHP 7.4.16
